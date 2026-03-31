@@ -6,6 +6,21 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
 
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+st.set_page_config(
+    page_title="Olympics Analysis",
+    page_icon="🏆",
+    layout="wide"  # makes better use of screen space
+)
+
 @st.cache_data
 def load_data():
     df = pd.read_csv('data/athlete_events.csv')
